@@ -9,7 +9,6 @@ def status_win_time(date):
     day, month, year = date.split('-')
     status = requests.get(f'http://nekopara.ru/date?day={day}&month={month}&year={year}').json()['message']
     rooms_count = status['rooms_count']['data']
-
-    print(rooms_count)
+    print(status)
 
 status_win_time('2-2-2025')
