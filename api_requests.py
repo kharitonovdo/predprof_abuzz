@@ -9,6 +9,10 @@ def status_win_time(date):
     day, month, year = date.split('-')
     status = requests.get(f'http://nekopara.ru/date?day={day}&month={month}&year={year}').json()['message']
     rooms_count = status['rooms_count']['data']
-    print(status)
+    potok_statusov = status['windows']['data']
+    matrix = []
 
+    for level in range(1, len(potok_statusov) + 1):
+        matrix += [list(map(int, potok_statusov[f'floor_{level}']))]
+    print(matrix)
 status_win_time('2-2-2025')
