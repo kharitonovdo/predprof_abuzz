@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/js/master.js">
+</head>
+<body>
+    <table></table>
+      <script>
+        let a = [[1, 0, 1],
+                [0, 0, 1],
+                [1, 0, 1]
+                ];
+        for (let key in a) {
+            for (let i in key) {
+                let row = document.createElement('tr')
+                row.innerHTML = `<th colspan='2'>${i}</th>`
+                document.querySelector('table').append(row)
+            }
+        }
+      </script>
+</body>
+</html>
