@@ -1,10 +1,11 @@
-const s_list = document.getElementById('dates')
+const data_input = document.getElementById('data')
 
 
 function createTableWithInnerHTML(data) {
 
 
     let tableHTML = document.getElementById('dummy')
+	tableHTML.innerHTML = ''
 
     data.forEach(item => {
         let tr = document.createElement('tr')
@@ -17,12 +18,8 @@ function createTableWithInnerHTML(data) {
     });
 }
 
-s_list.addEventListener('change', function(ev){
-	const xhr = new XMLHttpRequest()
-	xhr.open("GET", "/api/date/" + ev.target.value, true);
-	xhr.send(null);
-	xhr.onload = function() {
-		document.getElementById('dummy').innerHTML = ''
-		createTableWithInnerHTML(JSON.parse(xhr.response))
-};
-})
+data_input.addEventListener("change", (event) => {
+createTableWithInnerHTML(JSON.parse(data_input.value))
+
+});
+

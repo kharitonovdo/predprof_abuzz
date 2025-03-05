@@ -7,19 +7,14 @@
     <link rel="stylesheet" href="/static/js/master.js">
 </head>
 <body>
-    <table></table>
-      <script>
-        let a = [[1, 0, 1],
-                [0, 0, 1],
-                [1, 0, 1]
-                ];
-        for (let key in a) {
-            for (let i in key) {
-                let row = document.createElement('tr')
-                row.innerHTML = `<th colspan='2'>${i}</th>`
-                document.querySelector('table').append(row)
-            }
-        }
+	<table border="1" id="dummy"></table>
+	<label for="fruits">Выберете время</label>
+  <select id="dates" name="fruits">
+	  {% for date in dates %}
+	  <option value="{{ date }}">{{ date }}</option>
+	  {% endfor %}
+  </select>
+      <script src="static/js/master.js">
       </script>
 </body>
 </html>
